@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>postimages – ছবি দিন, ডাইরেক্ট লিংক নিন</title>
+<meta name="description" content="ছবি আপলোড করে সঙ্গে সঙ্গে ডাইরেক্ট লিংক, HTML ও BBCode কোড পান।">
+<meta name="theme-color" content="#0b0708">
+<link rel="icon" href="https://i.postimg.cc/FHGbxzc4/88f30a696f12a86be9ae9bd33bdd8423.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@100..150,500..900&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="slash" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="brand" href="#top"><img id="logo" alt="postimages লোগো"><span>postimages</span></a>
+  <nav>
+    <a href="#history">আমার ছবি</a><a href="#how">কীভাবে</a>
+    <button id="cfg" class="gear" aria-label="সেটিংস" title="API key সেটিংস"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="copy">
+      <h1>ছবি দিন।<br>লিংক নিন।</h1>
+      <p class="sub">আপলোড শেষ হলেই ডাইরেক্ট লিংক তৈরি। সেটা কোডে লোগো বা ছবি হিসেবে সরাসরি বসান।</p>
+    </div>
+    <div id="upload" class="cut drop" tabindex="0" role="button" aria-label="ছবি বেছে নিন">
+      <input id="file" type="file" accept="image/*" multiple hidden>
+      <div class="mark"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17V5M6.5 10.5 12 5l5.5 5.5"/><path d="M4 19h16"/></svg></div>
+      <h2>ছবি এখানে ছেড়ে দিন</h2>
+      <p>অথবা ট্যাপ করে বেছে নিন · পেস্টও চলে</p>
+      <small>JPG PNG GIF WEBP · সর্বোচ্চ <b id="maxmb">16</b> MB · একসাথে অনেকগুলো</small>
+    </div>
+  </section>
+
+  <div id="queue" class="queue"></div>
+
+  <section id="history" class="wrap">
+    <div class="row"><h2>আমার আপলোড</h2><button id="clear" class="ghost">সব মুছুন</button></div>
+    <div id="grid" class="grid"></div>
+    <p id="empty" class="muted">এখনো কোনো ছবি নেই।</p>
+  </section>
+
+  <section id="how" class="wrap steps">
+    <div class="cut"><b>১. আপলোড</b><p>ছবি টেনে আনুন বা বেছে নিন।</p></div>
+    <div class="cut"><b>২. কপি</b><p>ডাইরেক্ট লিংক, HTML, BBCode বা Markdown কপি করুন।</p></div>
+    <div class="cut"><b>৩. বসান</b><p><code>&lt;img src="লিংক"&gt;</code> লিখে যেকোনো পেজে দেখান।</p></div>
+  </section>
+</main>
+
+<footer><img class="flogo" id="flogo" alt=""><span>© <span id="yr"></span> postimages</span></footer>
+
+<dialog id="dlg" class="cut">
+  <h2>ImgBB API key</h2>
+  <p>ছবি আপলোডের জন্য একবার key বসান। key এই ডিভাইসের ব্রাউজারেই থাকবে।</p>
+  <p><a href="https://api.imgbb.com/" target="_blank" rel="noopener">api.imgbb.com</a> থেকে বিনামূল্যে key নিন।</p>
+  <input id="keyin" placeholder="এখানে key পেস্ট করুন" autocomplete="off" spellcheck="false">
+  <div class="dact"><button id="keycancel" class="ghost">বাদ দিন</button><button id="keysave" class="copy">সেভ করুন</button></div>
+</dialog>
+
+<div id="toast" class="toast" role="status"></div>
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
